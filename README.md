@@ -1,53 +1,90 @@
-In this project you’ll find a fully-featured microservices ecosystem that includes:
+# Java Spring Microservices
 
-API Gateway – Entry point into the system to route and secure incoming requests.
+This repository contains a fully featured **Java Spring Boot microservices project** designed to demonstrate real-world microservices architecture, communication patterns, and infrastructure setup.
 
-Patient Service – Manages patient domain logic and persistence.
+The project showcases how independently deployable services can work together using REST, gRPC, event streaming, and centralized authentication, similar to production enterprise systems.
 
-Billing Service – Handles billing logic, often communicating via gRPC for inter-service calls.
+---
 
-Auth Service – Responsible for authentication and authorization (JWT, users, roles).
+## 📌 Project Overview
 
-Analytics Service – Aggregates service data for metrics or reporting.
+This project implements a complete microservices ecosystem with multiple domain-driven services, an API gateway, and supporting infrastructure.
 
-Infrastructure – Scripts and definitions for Docker, Kafka, and database containers.
+Each service is built using **Spring Boot** and runs independently while communicating with other services through well-defined interfaces.
 
-Integration Tests – End-to-end test coverage across services.
+---
 
-This setup mirrors real-world architectures where systems are composed of independently deployable services communicating via REST, gRPC, Kafka, and authenticated through centralized tokens.
+## 🧩 Services Included
 
-🛠 Tech Stack
+### 🔹 API Gateway
+- Acts as the single entry point into the system
+- Routes incoming requests to appropriate backend services
+- Handles cross-cutting concerns such as authentication and request validation
 
-The core technologies and frameworks used include:
+### 🔹 Patient Service
+- Manages patient-related domain logic
+- Handles CRUD operations and data persistence
+- Uses Spring Data JPA with a relational database
 
-Backend & Frameworks
-Technology	Purpose
-Java 17+ / JVM	Primary language for services.
-Spring Boot	Creates production-ready microservices with minimal configuration.
-Spring Data JPA	Database access and ORM.
-Spring Security / JWT	Secures service endpoints with token-based auth.
-gRPC	High-performance inter-service communication.
-Infrastructure
-Tool	Purpose
-Docker	Containerizes each microservice.
-Docker Compose	Orchestrates multi-container environments (PostgreSQL, Kafka, etc.).
-Kafka	Event streaming between services.
-PostgreSQL	Persistent relational storage for domain data.
-🧱 Architecture Highlights
+### 🔹 Billing Service
+- Responsible for billing and payment-related logic
+- Communicates with other services using **gRPC** for efficient inter-service calls
 
-This microservices architecture follows common design patterns used in enterprise systems:
+### 🔹 Auth Service
+- Handles authentication and authorization
+- Issues and validates **JWT tokens**
+- Manages users and roles
 
-Service-Oriented Decomposition
-Each domain (patients, billing, auth) is its own Spring Boot application.
+### 🔹 Analytics Service
+- Collects and aggregates data from multiple services
+- Used for metrics, reporting, and monitoring use cases
 
-API Gateway Pattern
-A unified entry point that routes requests, handles cross-cutting concerns (like auth), and simplifies client interaction.
+---
 
-Inter-Service Communication
-Services communicate either via REST or gRPC where high performance is required (e.g., billing) — perfect for low-latency calls between services.
+## 🏗 Infrastructure
 
-Event Messaging
-Kafka is included to model asynchronous event-driven communication (e.g., notifications, analytics).
+The project includes infrastructure setup required to run the system locally or in containerized environments:
 
-Environment-Based Config
-Each microservice reads configuration from environment variables or Docker Compose overrides — allowing easy deployments across environments.
+- **Docker & Docker Compose** for containerization and orchestration
+- **PostgreSQL** for persistent data storage
+- **Kafka** for asynchronous, event-driven communication
+- Centralized configuration using environment variables
+
+---
+
+## 🧪 Testing
+
+- Integration tests are included to validate end-to-end flows across services
+- Ensures correct communication between microservices and infrastructure components
+
+---
+
+## 🛠 Tech Stack
+
+### Backend
+- Java
+- Spring Boot
+- Spring Data JPA
+- Spring Security
+- JWT Authentication
+- gRPC
+
+### Infrastructure & DevOps
+- Docker
+- Docker Compose
+- Apache Kafka
+- PostgreSQL
+
+---
+
+## 🧠 Architecture Highlights
+
+- Microservices-based architecture
+- Independently deployable services
+- REST and gRPC communication
+- Event-driven messaging with Kafka
+- Centralized authentication
+- Production-style configuration management
+
+---
+
